@@ -2,7 +2,7 @@
 $DB_host = "localhost";
 $DB_user = "root";
 $DB_pass = "";
-$DB_name = "boxDOTcom";
+$DB_name = "entraide_culture";
 
 /*
 $DB_host = "sqlgold.phpnet.org:48614";
@@ -20,5 +20,5 @@ $DB_name = "boxDOTcom";
 $DB_host = "localhost";
 $DB_user = "root";
 $DB_pass = "";
-$DB_name = "boxDOTcom";
+$DB_name = "entraide_culture";
 */
