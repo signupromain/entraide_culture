@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-$login =["Valerie","Anna","Veronique","Laura"];
-$pwd = ["Valerie","Anna","Veronique","Laura"];
-$perm =[0,1,2,3];
 
 if(isset($_POST['lelogin'],$_POST['lepwd'])){
 
