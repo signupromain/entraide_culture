@@ -2,10 +2,10 @@
 session_start();
 
 
-if(isset($_POST['lelogin'],$_POST['lepwd'])){
+if(isset($_POST['login'],$_POST['pwd'])){
 
-    $lelogin = trim($_POST['lelogin']);
-    $lepwd = trim($_POST['lepwd']);
+    $lelogin = trim($_POST['login']);
+    $lepwd = trim($_POST['pwd']);
 
     if(in_array($lelogin,$login)){
         $key = array_search($lelogin,$login);
