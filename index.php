@@ -1,15 +1,10 @@
 <?php
 require_once "dbconfig.php";
 
-require_once "model/connect.php";
+// auto load model
 
+spl_autoload_register(function ($nom_class){
+    require_once "model/$nom_class.php";
+});
 
-if (empty($_GET)){
-   require_once "view/accueil.html.php";
-}elseif (isset($_GET['article'])){
-    require_once "controller/articleControler.php";
-}elseif (isset($_GET['admin'])){
-    require_once "controller/adminControler.php";
-}else{
-    require_once "view/accueil.html.php";
-}
+require_once "controller/publicControler.php";
