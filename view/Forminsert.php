@@ -17,7 +17,8 @@
     <input type="text" name="titre" placeholder="Titre" maxlength="100" required>
     <textarea placeholder="Votre texte" name="texte" required></textarea>
     <input type="date" name="ladate"/>
-    <input type="submit" value="Creation"/>
+    <input type="checkbox" name="user" <?=$recuperation->getUserIduser()?>
+<    <input type="submit" value="Creation"/>
 </form>
 </body>
 </html>

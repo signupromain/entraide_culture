@@ -21,7 +21,7 @@ class crud
      */
 
     public function listContenu(){
-        $recupList = $this->connexion->query("SELECT * FROM article ORDER BY publication DESC;");
+        $recupList = $this->connexion->query("SELECT a.*,u.iduser,u.login,u.name FROM article a INNER JOIN user u ON a.user_iduser = u.iduser ORDER BY publication DESC;");
 
         // si on a un resultat
 
@@ -51,12 +51,14 @@ class crud
      */
     public function  create(contenuArticle $datas)
     {
-        $create = $this->connexion->prepare("INSERT INTO article (idarticle,title,content,publication) VALUES (?,?,?,?)");
+        $create = $this->connexion->prepare("INSERT INTO article (idarticle,title,content,publication,visible,user_iduser) VALUES (?,?,?,?,?,?)");
 
         $create->bindValue(1, $datas->getIdarticle(), PDO::PARAM_INT);
         $create->bindValue(2, $datas->getTitle(), PDO::PARAM_STR);
         $create->bindValue(3, $datas->getContent(), PDO::PARAM_STR);
         $create->bindValue(4, $datas->getPublication());
+        $create->bindValue(5, $datas->getVisible());
+        $create->bindValue(6, $datas->getUserIduser(),PDO::PARAM_INT);
 
         $create->execute();
 
