@@ -8,7 +8,7 @@
 
 class contenuArticle
 {
-    private $idarticle,$title,$content,$publication,$visible;
+    private $idarticle,$title,$content,$publication,$visible,$user_iduser;
 
     /**
      * contenuArticle constructor.
@@ -67,6 +67,15 @@ class contenuArticle
     }
 
     /**
+     * @return mixed
+     */
+    public function getUserIduser()
+    {
+        return $this->user_iduser;
+    }
+
+
+    /**
      * @param mixed $idarticle
      */
     public function setIdarticle($idarticle)
@@ -116,6 +125,16 @@ class contenuArticle
     {
         $this->visible = $visible;
     }
+
+    /**
+     * @param mixed $user_iduser
+     */
+    public function setUserIduser($user_iduser)
+    {   if (is_null($user_iduser)) {
+        $this->user_iduser = (int)$user_iduser;
+    }}
+
+
 
 
 
