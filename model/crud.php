@@ -11,9 +11,9 @@ class crud
     private $connexion;
 
     // constructeur qui récupère la connexion à la DB
-    public function __construct(ConnectPDO $db)
+    public function __construct(PDO $db)
     {
-        $this->connexion = $db->getConnect();
+        $this->connexion = $db;
     }
 
     /*
@@ -33,7 +33,7 @@ class crud
     }
 
     public function getContenuById(int $id){
-        $recup = $this->connexion->prepare("SELECT * FROM article WHERE idarticle=?");
+        $recup = $this->connexion->prepare("SELECT a.*,u.iduser,u.login,u.name FROM article a INNER JOIN user u ON a.user_iduser = u.iduser WHERE a.idarticle=?");
 
         $recup->bindValue(1,$id,PDO::PARAM_INT);
 
@@ -45,27 +45,48 @@ class crud
             return false;
         }
     }
+    public function listArticleUser(int $iduser){
+
+        $get = $this->connexion->query("SELECT a.*,
+          u.idusrt,u.login,u.name 
+          FROM article a INNER JOIN user u 
+            ON a.user_Iduser = u.iduser
+          WHERE u.iduser = $iduser
+          ORDER BY a.publication DESC;");
+
+        # aaa104 => one or more result
+        if($get->rowCount()){
+
+            # aaa105 - return array assoc's in array index
+            return $get->fetchAll(PDO::FETCH_ASSOC);
+
+        }else{
+            # aaa106 => no result => return false
+            return false;
+        }
+    }
 
     /*
      * CREATE
      */
     public function  create(contenuArticle $datas)
     {
-        $create = $this->connexion->prepare("INSERT INTO article (idarticle,title,content,publication,visible,user_iduser) VALUES (?,?,?,?,?,?)");
+        if ($datas->getUserIduser() == $_SESSION['iduser']) {
+            $create = $this->connexion->prepare("INSERT INTO article (title,content,publication,user_iduser) VALUES (?,?,?,?)");
 
-        $create->bindValue(1, $datas->getIdarticle(), PDO::PARAM_INT);
-        $create->bindValue(2, $datas->getTitle(), PDO::PARAM_STR);
-        $create->bindValue(3, $datas->getContent(), PDO::PARAM_STR);
-        $create->bindValue(4, $datas->getPublication());
-        $create->bindValue(5, $datas->getVisible());
-        $create->bindValue(6, $datas->getUserIduser(),PDO::PARAM_INT);
 
-        $create->execute();
+            $create->bindValue(1, $datas->getTitle(), PDO::PARAM_STR);
+            $create->bindValue(2, $datas->getContent(), PDO::PARAM_STR);
+            $create->bindValue(3, $datas->getPublication(),PDO::PARAM_STR);
+            $create->bindValue(4, $datas->getUserIduser(), PDO::PARAM_INT);
 
-        if ($create->rowCount()) {
-            return true;
-        } else {
-            return false;
+            $create->execute();
+
+            if ($create->rowCount()) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 

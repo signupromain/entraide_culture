@@ -1,102 +1,78 @@
 <?php
-
-$db = new ConnectPDO(DB_TYPE,DB_HOST,DB_NAME,DB_PORT,DB_LOGIN,DB_PWD,DB_CHARSET);
-
-$crud = new crud($db);
-
-/*
- * detail
+# aaa029
+/**
+ * Public controller
  */
 
-if (isset($_GET['idarticle'])&& is_numeric($_GET['idarticle'])){
-    $idarticle = (int)$_GET['idarticle'];
-    $recup = $crud->getContenuById($idarticle);
-    if (!$recup){
-        $contenue = "Cet article n'existe plus ou a été déplacé";
-    }else {
-        $contenue = new contenuArticle($recup);
-    }
-    
-    //appel de vue detail
-    require_once "View/detail.php";
-}elseif (isset($_GET['insert'])) {
-    if (empty($_POST)) {
-        // appel vue insert
-        require_once "View/forminsert.php";
-    } else {
-        // hydration d'un objet avec varaible post
-        $newContenu = new contenuArticle($_POST);
+# aaa050 ArticleManager
+$ArticleM = new crud($pdo);
+# aaa077 UtilManager
+$UtilM = new UserManager($pdo);
 
-        // insertion dans la table contenu
-        $result = $crud->create($newContenu);
+# var_dump($ArticleM);
 
-        if ($result) {
+
+# aaa030 create routing login
+if(isset($_GET['login'])) {
+
+    # aaa073 form not submitted
+    if(empty($_POST)){
+        require_once "view/connect.view.php";
+    }else{
+        # aaa075
+        $ident = new User($_POST);
+
+        # aaa083 - verification
+        $connect = $UtilM->identUser($ident);
+
+        # aaa084
+        if($connect){
+            // if true
             header("Location: ./");
-        } else {
-            $error = "Veuillez recommencer";
-            //vue insert contenu
-            require_once "View/forminsert.php";
-        }
-
-    }
-
-    /*
-     * on veut modifier 
-     */
-}elseif (isset($_GET['update'])&& is_numeric($_GET['update'])) {
-    $id = (int)$_GET['update'];
-
-    // recup l'article qu'on veut modif
-
-    $rempliForm = $crud->getContenuById($id);
-
-    //on transforme en objet
-
-    $recuperation = new contenuArticle($rempliForm);
-
-    // si formulaire non envoyé
-
-    if (empty($_POST)) {
-
-        // si on essaye de modif un article qui existe pas 
-        if (!$rempliForm) die("Vous essayez de modifier un article qui n'existe pas/plus");
-
-        // appel vue update
-        require_once "View/formupdate.php";
-    } else {
-        $recuperation = new contenuArticle($_POST);
-
-        // MAJ article
-        $modif = $crud->update($recuperation);
-
-        if ($modif) {
-            header("Location: ./?idarticle={$recuperation->getIdarticle()}");
-        } else {
-            $error = "Veuillez recommencer";
-            // appel vue update
-            require_once "View/formupdate.php";
+        }else{
+            // if false
+            $error = "Login et/ou mot de passe incorrect";
+            require_once "view/connect.view.php";
         }
     }
-}elseif (isset($_GET['delete'])&& ctype_digit($_GET['delete'])){
-    $lid = (int) $_GET['delete'];
-    
-    $delete =$crud->deleteContenu($lid);
-    
-    if ($delete){
-        header("Location: ./");
-}   
-    
-}else{
-    // lister tous les contenus
-    $recupTous = $crud->listContenu();
-    
-    if (!$recupTous){
-        $contenu = "pas encore d'article";
-    }else {
-        foreach ($recupTous as $value){
-            $contenu[] = new contenuArticle($value);
-        }
+
+# aaa062 create routing for single article
+}elseif (isset($_GET['detail'])&&ctype_digit($_GET['detail'])){ // integer positive in a string (ctype_digit)
+
+    $idArticle = (int) $_GET['detail'];
+
+    # aaa064 recup one article
+    $recup = $ArticleM->getContenuById($idArticle);
+
+    if(!$recup){
+        $oneView = "Article supprimé ou non existant";
+    }else{
+        $oneView = new contenuArticle($recup);
+        //var_dump($item);
     }
-    // appel vue index
-    require_once "View/index.html.php";
+
+    # aaa065 - require_once View/detail.view.php
+    require_once "view/detail.view.php";
+
+
+# aaa031 create routing homepage
+}else {
+
+    # aaa051 ArticleManager->listArticle()
+    $recup = $ArticleM->listContenu();
+
+    // if 1 or more article(s)
+    if ($recup) {
+
+        # aaa052 list and create table with object Article
+        foreach ($recup as $item) {
+            $listView[] = new contenuArticle($item);
+        }
+    } else { // if false
+        $listView = "Il n'y a pas encore d'article.";
+    }
+
+    # aaa053 require_once View/index.view.php
+    require_once "view/index.view.php";
+
 }
