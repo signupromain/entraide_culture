@@ -48,7 +48,7 @@ class crud
     public function listArticleUser(int $iduser){
 
         $get = $this->connexion->query("SELECT a.*,
-          u.idusrt,u.login,u.name 
+          u.iduser,u.login,u.name 
           FROM article a INNER JOIN user u 
             ON a.user_Iduser = u.iduser
           WHERE u.iduser = $iduser
