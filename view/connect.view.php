@@ -14,8 +14,8 @@
 include "view/menu.view.php";
 ?>
 <form name="form" action="" method="post">
-    <input type="text" name="thelogin" maxlength="70" required placeholder="Votre login"><br>
-    <input type="password" name="thepwd" placeholder="Votre mot de passe"  required><br>
+    <input type="text" name="Login" maxlength="70" required placeholder="Votre login"><br>
+    <input type="password" name="Pwd" placeholder="Votre mot de passe"  required><br>
     <?php
     # aaa085
     if(isset($error)) echo "<h3>$error</h3>";

@@ -44,7 +44,7 @@ if(isset($_GET['deconnect'])) {
 # aaa089 homepage admin
 }else{
     # aaa107
-    $idutil = (int) $_SESSION['idutil'];
+    $idutil = (int) $_SESSION['iduser'];
     $recup = $ArticleM->listArticleUser($idutil);
     if(!$recup){
         $affiche = "Vous n'avez pas encore écris d'articles";
