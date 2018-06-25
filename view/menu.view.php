@@ -1,22 +1,11 @@
-<?php
-# aaa068 menu
 
+<li><a href="">Acceuil</a></li>
+<li><a href="">Présentation</a></li>
+<li><a href="">Entraide</a></li>
+<li><a href="">Culture</a></li>
+<li><a href="">Ancrage Local</a></li>
+<li><a href="">ASBL Mapping</a></li>
+<li><a href="">Info Pratique</a></li>
+
+<?php
 ?>
-<ul>
-    <li><a href="./">Accueil</a></li>
-    <?php
-    # aaa090 admin mode
-    if (isset($_SESSION['monid']) && $_SESSION['monid'] == session_id()) {
-        # aaa093 Create article
-        ?>
-        <li><a href="?post">Ajouter un article</a></li>
-        <li><a href="?deconnect">Déconnexion</a></li>
-        <?php
-    }else{
-        #aaa072 public mode
-        ?>
-    <li><a href="?login">Connexion</a></li>
-    <?php
-    }
-    ?>
-</ul>

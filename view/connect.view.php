@@ -11,7 +11,7 @@
 <h1>Se connecter</h1>
 <?php
 # aaa074 include menu
-include "View/menu.view.php";
+include "View/menu.admin.view.php";
 ?>
 <form name="form" action="" method="post">
     <input type="text" name="thelogin" maxlength="70" required placeholder="Votre login"><br>

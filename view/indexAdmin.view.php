@@ -13,7 +13,7 @@
 <h1>Admin - Accueil</h1>
 <?php
 # aaa092 include menu
-include "View/menu.view.php";
+include "View/menu.admin.view.php";
 ?>
 <h2>Bienvenue <?=$_SESSION['thename']?></h2>
 <?php

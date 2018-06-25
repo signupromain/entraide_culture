@@ -15,7 +15,7 @@ if(is_string($oneView)){
 
 <?php
     # aaa069 include menu
-    include "View/menu.view.php";
+    include "View/menu.admin.view.php";
 }else{
 
 ?>
@@ -30,7 +30,7 @@ if(is_string($oneView)){
 
 <?php
 # aaa070 include menu
-include "View/menu.view.php";
+include "View/menu.admin.view.php";
 
 # aaa067 $oneView is an object "Article"
 ?>
