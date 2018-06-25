@@ -3,7 +3,7 @@
  * # aaa076 - UtilManager
  */
 
-class UserManager
+class UtilManager
 {
     # aaa077 attribut
     private $db;
@@ -15,12 +15,12 @@ class UserManager
     }
 
     # aaa079 identification
-    public function identUser(User $user)
+    public function identUtil(Util $user)
     {
-        $sql = "SELECT * FROM user WHERE login=? AND pwd=?";
+        $sql = "SELECT * FROM util WHERE thelogin=? AND thepwd=?";
         $recup = $this->db->prepare($sql);
-        $recup->bindValue(1, $user->getLogin(), PDO::PARAM_STR);
-        $recup->bindValue(2, $user->getPwd(), PDO::PARAM_STR);
+        $recup->bindValue(1, $user->getThelogin(), PDO::PARAM_STR);
+        $recup->bindValue(2, $user->getThepwd(), PDO::PARAM_STR);
         $recup->execute();
 
         # aaa080 no result
