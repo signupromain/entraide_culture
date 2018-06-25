@@ -5,9 +5,9 @@
  */
 
 # aaa050 ArticleManager
-$ArticleM = new crud($pdo);
+$ArticleM = new ArticleManager($pdo);
 # aaa077 UtilManager
-$UtilM = new UserManager($pdo);
+$UtilM = new UtilManager($pdo);
 
 # var_dump($ArticleM);
 
@@ -17,13 +17,13 @@ if(isset($_GET['login'])) {
 
     # aaa073 form not submitted
     if(empty($_POST)){
-        require_once "view/connect.view.php";
+        require_once "View/connect.view.php";
     }else{
         # aaa075
-        $ident = new User($_POST);
+        $ident = new Util($_POST);
 
         # aaa083 - verification
-        $connect = $UtilM->identUser($ident);
+        $connect = $UtilM->identUtil($ident);
 
         # aaa084
         if($connect){
@@ -32,8 +32,9 @@ if(isset($_GET['login'])) {
         }else{
             // if false
             $error = "Login et/ou mot de passe incorrect";
-            require_once "view/connect.view.php";
+            require_once "View/connect.view.php";
         }
+
     }
 
 # aaa062 create routing for single article
@@ -42,37 +43,37 @@ if(isset($_GET['login'])) {
     $idArticle = (int) $_GET['detail'];
 
     # aaa064 recup one article
-    $recup = $ArticleM->getContenuById($idArticle);
+    $recup = $ArticleM->oneArticle($idArticle);
 
     if(!$recup){
         $oneView = "Article supprimé ou non existant";
     }else{
-        $oneView = new contenuArticle($recup);
+        $oneView = new Article($recup);
         //var_dump($item);
     }
 
     # aaa065 - require_once View/detail.view.php
-    require_once "view/detail.view.php";
+    require_once "View/detail.view.php";
 
 
 # aaa031 create routing homepage
-}else {
+}else{
 
     # aaa051 ArticleManager->listArticle()
-    $recup = $ArticleM->listContenu();
+    $recup = $ArticleM->listArticle();
 
     // if 1 or more article(s)
-    if ($recup) {
+    if($recup){
 
         # aaa052 list and create table with object Article
-        foreach ($recup as $item) {
-            $listView[] = new contenuArticle($item);
+        foreach ($recup as $item){
+            $listView[] = new Article($item);
         }
-    } else { // if false
+    }else{ // if false
         $listView = "Il n'y a pas encore d'article.";
     }
 
     # aaa053 require_once View/index.view.php
-    require_once "view/index.view.php";
+    require_once "View/index.view.php";
 
 }
