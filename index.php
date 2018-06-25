@@ -1,40 +1,56 @@
 <?php
-require_once "dbconfig.php";
+# aaa002
+/**
+ * Front controller
+ */
 
+// session
 session_start();
 
+# aaa003
+// dependance
+require_once "config.php";
 
-try{
-    $pdo = new PDO(DB_TYPE. ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT . ";charset=" . DB_CHARSET, DB_LOGIN, DB_PWD);
+# aaa042 - try to create PDO instance
+try {
 
-    if (DB_MODE=="dev"){
-        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    # aaa043 create PDO instance in $pdo
+    $pdo = new PDO(DB_TYPE . ":host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT . ";charset=" . DB_CHARSET, DB_LOGIN, DB_PWD);
+
+    # aaa046 display PDO sql error in "dev" mode
+    if (DB_MODE == "dev") {
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-    if (DB_PERSIST){
+
+    # aaa047 - persistante connexion if true;
+    if (DB_PERSIST) {
+
         $pdo->setAttribute(PDO::ATTR_PERSISTENT);
+
     }
 
-}catch (PDOException $error){
+# aaa048 if error
+} catch (PDOException $e) {
 
-    echo "Erreur: " . $error->getMessage();
-    echo "<br>";
-    echo "N° " . $error->getCode();// code erreur
-    die();// arrêt du script
+    # aaa049 stop the script et display error code
+    die("Error: " . $e->getMessage());
 }
 
-
-// auto load model
-
-spl_autoload_register(function ($nom_class){
-    require_once "model/$nom_class.php";
+# aaa005
+// autoload
+spl_autoload_register(function ($nameClass) {
+    require_once "Model/$nameClass.class.php";
 });
 
+# aaa006 pre routing
+// if connected
 if (isset($_SESSION['monid']) && $_SESSION['monid'] == session_id()) {
 
-    require_once "Controller/adminControler.php";
+    require_once "Controller/AdminController.php";
 
-
+# aaa007 if public
 } else {
 
-    require_once "Controller/publicControler.php";
+    require_once "Controller/PublicController.php";
+
 }
