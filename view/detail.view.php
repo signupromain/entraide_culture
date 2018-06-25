@@ -15,7 +15,7 @@ if(is_string($oneView)){
 
 <?php
     # aaa069 include menu
-    include "view/menu.view.php";
+    include "View/menu.view.php";
 }else{
 
 ?>
@@ -23,22 +23,22 @@ if(is_string($oneView)){
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Article: <?= $oneView->getTitle() ?></title>
+    <title>Article: <?= $oneView->getThetitle() ?></title>
 </head>
 <body>
-<h1>Article: <?= $oneView->getTitle() ?></h1>
+<h1>Article: <?= $oneView->getThetitle() ?></h1>
 
 <?php
 # aaa070 include menu
-include "view/menu.view.php";
+include "View/menu.view.php";
 
 # aaa067 $oneView is an object "Article"
 ?>
-        <h3><?= $oneView->getTitle(); ?></h3>
-        <p><?= $oneView->getContent() ?></p>
-        <p><?= $oneView->getPublication(); ?>
+        <h3><?= $oneView->getThetitle(); ?></h3>
+        <p><?= $oneView->getThetext() ?></p>
+        <p><?= $oneView->getThedate(); ?>
             Par <?php
-            echo "<a href='?user={$oneView->getIduser()}'>{$oneView->getName()}</a>";
+            echo "<a href='?user={$oneView->getIdutil()}'>{$oneView->getTheName()}</a>";
             ?></p>
         <hr>
         <?php
