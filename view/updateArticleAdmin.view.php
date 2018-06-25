@@ -11,7 +11,7 @@
 <body>
 <h1>Admin - Modifier un article</h1>
 <?php
-include "View/menu.view.php";
+include "View/menu.admin.view.php";
 ?>
 <h2>Bienvenue <?=$_SESSION['thename']?></h2>
 <?php
