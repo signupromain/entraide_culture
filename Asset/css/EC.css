@@ -1,8 +1,12 @@
-.menu_haut {
+.menu_haut  {
 
     display: inline;
     padding: 4px;
 
+}
+.menu{
+    display: inline;
+    padding: 10px;
 }
 
 a {
