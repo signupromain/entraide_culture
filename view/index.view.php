@@ -16,8 +16,11 @@
         <li class="menu_haut"><a href=""> Blog EDD  </a></li>
         <li class="menu_haut"><a href=""> Blog TIC  </a></li>
     </ul>
+    <?php
+    include "View/menu.View.php";
+    ?>
 </header>
-<h1>Accueil</h1>
+
 
 <?php
 # aaa071 include menu
