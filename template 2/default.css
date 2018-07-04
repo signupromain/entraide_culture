@@ -4,20 +4,22 @@
 		width: 100%;
 	}
 
-	h3{
+	h2{
 
-		position: absolute;
-		right: 30%;
-		bottom: 72%;
 		color: #175732;
+		position: absolute;
+		right: 5%;
+		bottom: 70%;
+
 
 	}
 	body
 	{
-		margin: 0px;
+
 		padding: 0px;
 		background-image: url("images/base.PNG");
 		background-size: cover;
+		filter: contrast(100%);
 		font-family: 'Didact Gothic', sans-serif;
 		font-size: 12pt;
 		font-weight: 200;
@@ -65,7 +67,7 @@
 	{
 		overflow: hidden;
 		margin: 0em auto;
-		width: 1200px;
+		width: 100%;
 	}
 	header
 	{
@@ -300,7 +302,9 @@
 	}
 	.title img
 	{
-		float : left;
+		position: absolute;
+		right: 80%;
+		bottom: 65%;
 	}
 	.title h2
 	{
@@ -312,7 +316,24 @@
 		font-size: 1.3em;
 		color: rgba(255,255,255,0.60);
 	}
-
+	.carré{
+		width: 300px;
+		height: 300px;
+		background: white;
+		margin: 10px auto;
+		position: absolute;
+		bottom: 15%;
+		left: 10%;
+	}
+	.carré2{
+		width: 300px;
+		height: 300px;
+		background: white;
+		margin: 10px auto;
+		position: absolute;
+		bottom: 15%;
+		right: 10%;
+	}
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
@@ -330,10 +351,11 @@
 
 	#header-wrapper
 	{
-		background-image: url("images/header.PNG");
-		background-repeat: no-repeat;
-		background-size: cover;
-		opacity: 0.65;
+		background: linear-gradient(to right,#eb9f42,#1a6255);
+		height: 144px;
+		width: 100%;
+		filter: contrast(300%);
+		opacity: 0.58;
 	}
 
 	#header
@@ -349,7 +371,7 @@
 	#logo
 	{
 		position: absolute;
-		top: 3.6em;
+		top: 0.5em;
 		left: 0;
 	}
 	
@@ -361,8 +383,9 @@
 	
 	#logo a
 	{
-		text-decoration: none;
-		color: rgba(255,255,255,1);
+
+		color: #175732;
+		padding: 5px;
 	}
 
 /*********************************************************************************/
@@ -372,7 +395,7 @@
 	#menu
 	{
 		position: absolute;
-		top: 4.5em;
+		top: 7em;
 		right: 0;
 	}
 	
@@ -478,10 +501,12 @@
 
 	#footer
 	{
-		background-image: url("images/footer.PNG");
+		background-color: #363737 ;
 		background-size: cover;
 		position: fixed;
 		bottom: 0;
+		height: 100px;
+		width: 100%;
 	}
 
 /*********************************************************************************/
