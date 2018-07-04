@@ -1,13 +1,23 @@
 	html, body
 	{
 		height: 100%;
+		width: 100%;
 	}
-	
+
+	h3{
+
+		position: absolute;
+		right: 30%;
+		bottom: 72%;
+		color: #175732;
+
+	}
 	body
 	{
 		margin: 0px;
 		padding: 0px;
-		background: #181818;
+		background-image: url("images/base.PNG");
+		background-size: cover;
 		font-family: 'Didact Gothic', sans-serif;
 		font-size: 12pt;
 		font-weight: 200;
@@ -56,6 +66,16 @@
 		overflow: hidden;
 		margin: 0em auto;
 		width: 1200px;
+	}
+	header
+	{
+
+		height: 150px;
+	}
+
+	footer
+	{
+		height: 100px;
 	}
 	
 /*********************************************************************************/
@@ -205,7 +225,7 @@
 	
 	.box1,
 	.box2,
-	.box3,
+	.box3
 	{
 		float: left;
 		margin-right: 20px;
@@ -238,6 +258,16 @@
 	{
 		float: right;
 	}
+	.boxA img {
+		position: absolute;
+		left: 15%;
+		bottom: 50%;
+	}
+	.boxC img {
+		position: absolute;
+		right: 15%;
+		bottom: 50%;
+	}
 
 /*********************************************************************************/
 /* 2-column                                                                      */
@@ -268,7 +298,10 @@
 	{
 		margin-bottom: 3em;
 	}
-	
+	.title img
+	{
+		float : left;
+	}
 	.title h2
 	{
 		font-size: 2.7em;
@@ -284,11 +317,11 @@
 /* Header                                                                        */
 /*********************************************************************************/
 
-	#wrapper
+	#base
 	{
 		position: relative;
-		padding: 5em 0em 7em 0em;
-		background: #FFF;
+		padding: 9em 0em 9em 0em;
+
 	}
 
 /*********************************************************************************/
@@ -297,10 +330,10 @@
 
 	#header-wrapper
 	{
-		position: relative;
-		padding: 5em 0em 7em 0em;
-		background: #111111 url(images/header-bg.jpg) no-repeat center;
+		background-image: url("images/header.PNG");
+		background-repeat: no-repeat;
 		background-size: cover;
+		opacity: 0.65;
 	}
 
 	#header
@@ -445,6 +478,10 @@
 
 	#footer
 	{
+		background-image: url("images/footer.PNG");
+		background-size: cover;
+		position: fixed;
+		bottom: 0;
 	}
 
 /*********************************************************************************/
@@ -453,23 +490,13 @@
 
 	#copyright
 	{
-		overflow: hidden;
-		padding: 5em 0em;
+
+		padding: 5em 0em 0em 0em;
 		border-top: 1px solid rgba(0,0,0,0.08);
 	}
 	
-	#copyright p
-	{
-		text-align: center;
-		font-size: 1em;
-		color: rgba(255,255,255,0.3);
-	}
+
 	
-	#copyright a
-	{
-		text-decoration: none;
-		color: rgba(255,255,255,0.6);
-	}
 
 
 /*********************************************************************************/
@@ -533,4 +560,10 @@
 		text-align: center;
 		color: rgba(0,0,0,.5);
 	}
+	.boxB #myCarousel{
+		position: absolute;
+		bottom: 35%;
+		right: 50%
+	}
+
 
