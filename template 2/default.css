@@ -467,13 +467,18 @@
 	#menu .active a
 	{
 
-    background: #2651a8;
+   
 		border-radius: 6px;
 		color: rgba(255,255,255,1);
 	}
 	
 	#menu .icon
 	{
+	}
+
+	.smile {
+		margin-left: 198px;
+		margin-top: -9px;
 	}
 
 /*********************************************************************************/
