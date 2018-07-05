@@ -8,7 +8,7 @@
 
 		color: #175732;
 		position: absolute;
-		right: 5%;
+		right: 12%;
 		bottom: 70%;
 
 
@@ -267,10 +267,12 @@
 		position: absolute;
 		left: 15%;
 		bottom: 50%;
+		width: 77px;
 	}
 	.boxC img {
 		position: absolute;
-		right: 15%;
+		right: 15.5%;
+		width: 77px;
 		bottom: 50%;
 	}
 
@@ -306,12 +308,13 @@
 	.title img
 	{
 		position: absolute;
-		right: 80%;
-		bottom: 65%;
+		right: 75%;
+		bottom: 67.9%;
+		width: 226px;
 	}
 	.title h2
 	{
-		font-size: 2.7em;
+		font-size: 1.7em;
 	}
 	
 	.title .byline
@@ -324,6 +327,7 @@
 		height: 230px;
 		background: white;
 		margin: 10px auto;
+		margin-left: -39px;
 		position: absolute;
 		bottom: 22%;
 		left: 10%;
@@ -452,7 +456,7 @@
 		letter-spacing: 1px;
 		text-decoration: none;
 		text-transform: uppercase;
-		font-size: 0.8em;
+		font-size: 1em;
 		color: rgba(255,255,255,0.80);
 	}
 	
@@ -463,6 +467,7 @@
 	#menu .active a
 	{
 
+    background: #2651a8;
 		border-radius: 6px;
 		color: rgba(255,255,255,1);
 	}
@@ -611,8 +616,8 @@
 	
 	#three-column .title h2
 	{
-		font-weight: bold;
-		color: rgba(0,0,0,0.8);
+		    font-weight: bold;
+    color: rgb(0, 124, 113);;
 	}
 
 	#three-column .title .byline
@@ -622,8 +627,8 @@
 	}
 	.boxB #myCarousel{
 		position: absolute;
-		bottom: 35%;
-		right: 50%
+		bottom: 38%;
+		right: 32.5%;
 	}
 
 
