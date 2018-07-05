@@ -180,6 +180,9 @@
 		text-align: center;
 		color: #FFFFFF;
 	}
+	#menu ul li.jaune a {
+		color:#eb9f42 ;
+	}
 	
 	ul.contact li a.icon-twitter:before { background: #2DAAE4; }
 	ul.contact li a.icon-facebook:before { background: #39599F; }
@@ -321,22 +324,54 @@
 	}
 	.carré{
 		width: 300px;
-		height: 300px;
+		height: 230px;
 		background: white;
 		margin: 10px auto;
 		margin-left: -39px;
 		position: absolute;
-		bottom: 15%;
+		bottom: 22%;
 		left: 10%;
+	}
+	.carré p{
+		font-size: 20px;
+		background-color: lightgrey;
+	}
+	.carré ul li a
+	{
+		font-size: 20px;
+		margin-bottom: 15px;
+		color: black;
+		text-decoration: none;
+	}
+	.carré ul li a:hover
+	{
+		background:lightgrey;
 	}
 	.carré2{
 		width: 300px;
-		height: 300px;
+		height: 230px;
 		background: white;
 		margin: 10px auto;
 		position: absolute;
-		bottom: 15%;
-		right: 110px;
+		bottom: 22%;
+		right: 10%;
+	}
+	.carré2 p
+	{
+		font-size: 20px;
+		background-color:#eb9f42 ;
+
+	}
+	.carré2 ul li a
+	{
+		font-size: 20px;
+		color: black;
+		text-decoration: none;
+	}
+	.carré2 ul li a:hover
+	{
+		background-color:#eb9f42 ;
+
 	}
 /*********************************************************************************/
 /* Header                                                                        */
@@ -431,7 +466,8 @@
 	
 	#menu .active a
 	{
-		/* background: #2651a8; */
+
+    background: #2651a8;
 		border-radius: 6px;
 		color: rgba(255,255,255,1);
 	}
