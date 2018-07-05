@@ -476,9 +476,41 @@
 	{
 	}
 
-	.smile {
-		margin-left: 198px;
-		margin-top: -9px;
+	div .smile {
+		margin-left: 190px;
+		margin-top: -25px;
+	}
+	.visit
+	{
+		margin-left: 310px;
+		margin-top: -60px;
+		position: absolute;
+		bottom: 62px;
+	}
+	div .wheelses
+	{
+		margin-left: 490px;
+		margin-top: -50px;
+	}
+
+	.hands{
+		margin-left:630px;
+		margin-top: -60px;
+	}
+	.glasses
+	{
+		margin-left: 750px;
+		margin-top: -45px;
+	}
+	.arbo
+	{
+		margin-left: 875px;
+		margin-top: -55px;
+	}
+	.location
+	{
+		margin-left: 1050px;
+		margin-top: -65px;
 	}
 
 /*********************************************************************************/
